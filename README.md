@@ -69,8 +69,7 @@
 │   ├── Wandu_Full_Arrangement.mid    # 完整多轨 MIDI
 │   └── ...                          # 九个独立声部 MIDI
 ├── 试听/
-│   ├── 晚渡.m4a                     # AAC 立体声试听
-│   └── 晚渡.wav                     # 96 kHz / 24-bit 立体声混音
+│   └── 晚渡.m4a                     # AAC 立体声试听
 ├── assets/
 │   └── screenshots/                 # 制作过程截图
 ├── 制作源文件/
@@ -79,6 +78,26 @@
 ```
 
 本地制作目录另有 `备份/`，用于保存历史版本和隔离核验工程；主工程入口是根目录的 `晚渡.flp`。
+
+96 kHz / 24-bit WAV 是本地导出与核验文件，当前仓库提供 M4A 试听，未包含 WAV。
+
+## 仓库维护
+
+正式提交包括根目录的 FL Studio 工程、`MIDI/`、`试听/`、制作源文件、`score_manifest.json`、截图与文档。更新编曲后应同步核对工程、MIDI、清单和试听，避免版本不一致；新增正式 WAV 等交付文件时也应保持可跟踪。
+
+历史工程、自动备份和隔离核验副本放在根目录的 `备份/` 或 `Backup/`；临时工程可使用 `.flp.bak`、`.flp.tmp` 后缀。这些文件、Python 字节码／虚拟环境、系统及编辑器缓存由仓库的 `.gitignore` 排除，不提交；规则不会统一忽略 `.flp`、`.mid` 或音频文件。
+
+提交前在仓库根目录检查：
+
+```sh
+git status --short
+git diff --check
+git diff --cached --stat
+# 禁用个人全局规则，检查仓库自身的忽略配置。
+git -c core.excludesFile=/dev/null check-ignore -v .DS_Store 制作源文件/__pycache__/compose_wandu.pyc 备份/晚渡.flp
+# 正常应无输出：不能让正式的已跟踪文件落入忽略规则。
+git -c core.excludesFile=/dev/null ls-files --cached --ignored --exclude-standard
+```
 
 ## MIDI 源文件
 
