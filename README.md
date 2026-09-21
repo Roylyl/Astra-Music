@@ -1,12 +1,49 @@
+<div align="center">
+
 # 晚渡 · WANDU
 
-一首以叙事民谣与独立摇滚为方向的原创编曲。原声吉他铺开和声，小号承担原本人声的位置，弦乐与长号在后半段逐渐加入。
+### 原创叙事民谣 / 独立摇滚器乐编曲工程
 
-使用 FL Studio 制作，保留完整工程、九个声部的钢琴卷帘 MIDI，以及可复现 MIDI 的 Python 源文件。
+完整 FL Studio 工程、九声部 MIDI、可复现的 MIDI 生成源文件与立体声试听。
+
+<img src="assets/screenshots/02-arrangement.png" alt="《晚渡》在 FL Studio 中的完整播放列表排列" width="760">
+
+[![Release](https://img.shields.io/github/v/release/Roylyl/Astra-Music?display_name=tag&include_prereleases&style=flat-square&label=release)](https://github.com/Roylyl/Astra-Music/releases)
+[![Downloads](https://img.shields.io/github/downloads/Roylyl/Astra-Music/total?style=flat-square&label=downloads)](https://github.com/Roylyl/Astra-Music/releases)
+[![Stars](https://img.shields.io/github/stars/Roylyl/Astra-Music?style=flat-square)](https://github.com/Roylyl/Astra-Music/stargazers)
+[![Forks](https://img.shields.io/github/forks/Roylyl/Astra-Music?style=flat-square)](https://github.com/Roylyl/Astra-Music/forks)
+[![Open Issues](https://img.shields.io/github/issues/Roylyl/Astra-Music?style=flat-square)](https://github.com/Roylyl/Astra-Music/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/Roylyl/Astra-Music?style=flat-square)](https://github.com/Roylyl/Astra-Music/commits/main)
+[![Repo Size](https://img.shields.io/github/repo-size/Roylyl/Astra-Music?style=flat-square)](https://github.com/Roylyl/Astra-Music)
+
+[试听与下载](#试听与下载) · [作品说明](#关于作品) · [配器](#配器) · [曲式](#曲式) · [快速开始](#快速开始) · [可复现-midi](#可复现-midi) · [工程核验](#工程与轨道核验) · [许可说明](#许可与第三方依赖)
+
+</div>
+
+## 项目概览
+
+《晚渡》是一首以叙事民谣与独立摇滚为方向的原创器乐编曲。原声吉他铺开和声，小号承担原本人声的位置，弦乐与长号在后半段逐渐加入。
+
+项目使用 FL Studio 制作，仓库保留完整工程、九个声部的钢琴卷帘 MIDI、完整多轨 MIDI、立体声试听、曲目清单，以及可复现 MIDI 的 Python 源文件。仓库中的 FL Studio 工程、MIDI、清单与试听共同构成当前公开版本；Python 脚本只负责生成 MIDI 与清单，不会生成配置好音源的 FLP 或渲染音频。
 
 **88 BPM · E 小调 · 4/4 拍 · 96 小节 · 约 4 分 28 秒（含尾音）**
 
-[试听 / 下载 M4A](试听/晚渡.m4a) · [下载 FL Studio 工程](晚渡.flp) · [完整多轨 MIDI](MIDI/Wandu_Full_Arrangement.mid)
+## 试听与下载
+
+- [在线试听 / 下载 M4A](试听/晚渡.m4a)
+- [下载 FL Studio 工程](晚渡.flp)
+- [下载完整多轨 MIDI](MIDI/Wandu_Full_Arrangement.mid)
+- [浏览九个独立声部 MIDI](MIDI/)
+
+> M4A 为当前仓库提供的试听版本。96 kHz / 24-bit WAV 是本地导出与核验文件，未包含在仓库中。
+
+## 核心内容
+
+- **可编辑工程：** 根目录提供完整的 `晚渡.flp`，保留播放列表、九个乐器通道、混音器路由及时间标记。
+- **可迁移编曲：** 提供一个完整多轨 MIDI 和九个独立声部 MIDI，可导入其他 DAW 后重新分配音源。
+- **可复现素材：** `制作源文件/compose_wandu.py` 使用 Python 标准库和固定随机种子生成 MIDI 与 `score_manifest.json`。
+- **制作记录：** 三张截图记录需求、工程排列与右侧钢琴复核过程；最终状态以本 README 和根目录工程为准。
+- **明确的验证范围：** 仓库记录工程、MIDI、路由和波形核验结果，但不将这些技术检查表述为人工听音母带审定。
 
 ## 关于作品
 
@@ -50,12 +87,16 @@
 
 乐谱长度约 4:22，完整混音保留混响尾音后约为 4:28。
 
-## 打开工程
+## 快速开始
+
+### 在 FL Studio 中打开完整工程
 
 1. 使用 FL Studio 打开根目录的 [`晚渡.flp`](晚渡.flp)。本项目在 **macOS / Apple Silicon 的 FL Studio 2026（26.1.3）** 中完成打开、播放、保存和导出验证；其他版本尚未验证。
 2. 确认 FLEX 中可以加载 **General MIDI Library**。音色库需由使用者通过自己的 FL Studio 安装获取，项目文件不包含音色库本体。
 3. 切换到 **SONG** 模式，从第 1 小节播放完整编曲。
 4. 在对应样式的钢琴卷帘中编辑音符。播放列表中的时间标记对应上表曲式，混音器轨 1–9 与配器表一一对应。
+
+### 在其他 DAW 中使用 MIDI
 
 也可以将 [`Wandu_Full_Arrangement.mid`](MIDI/Wandu_Full_Arrangement.mid) 导入其他 DAW，并按配器表重新分配音源。MIDI 不包含音色与完整混音设置，替换音源后声音会有所不同。
 
@@ -99,17 +140,32 @@ git -c core.excludesFile=/dev/null check-ignore -v .DS_Store 制作源文件/__p
 git -c core.excludesFile=/dev/null ls-files --cached --ignored --exclude-standard
 ```
 
-## MIDI 源文件
+## 可复现 MIDI
 
 [`compose_wandu.py`](制作源文件/compose_wandu.py) 使用 Python 标准库生成 MIDI，并固定随机种子以复现力度与起音的微小变化。
 
-运行前，将脚本顶部的 `OUT` 改为自己的输出目录，建议使用新建的空目录，再执行：
+### 生成步骤
+
+运行前，将脚本顶部的 `OUT` 改为自己的输出目录。该变量当前包含作者本机的绝对路径，因此必须先修改；建议指向一个新建的空目录，并预先创建其中的 `MIDI` 子目录，再执行：
 
 ```bash
 python3 制作源文件/compose_wandu.py
 ```
 
 脚本输出 MIDI 及曲目清单，不会自动生成配置好 FLEX 音源的 FLP，也不会渲染音频；需要继续编辑最终编曲时，直接打开已有工程即可。
+
+### 产物关系
+
+```text
+compose_wandu.py
+├── MIDI/Wandu_Full_Arrangement.mid   # 10 轨：指挥轨 + 9 个声部
+├── MIDI/01...09 *.mid                 # 每个声部的独立 MIDI
+└── score_manifest.json                # 速度、曲式与音符数量
+
+上述 MIDI ──手动导入与配置音源──> 晚渡.flp ──FL Studio 导出──> 试听/晚渡.m4a
+```
+
+这里的“可复现”仅指脚本生成的 MIDI 数据与清单。FL Studio 工程内的 FLEX 音源选择、路由、播放列表编排和混音设置需要在 DAW 中维护，不由脚本自动创建。
 
 ## 工程与轨道核验
 
@@ -161,16 +217,46 @@ python3 制作源文件/compose_wandu.py
 
 从收藏歌单确定风格，完成九个声部的 MIDI，并将音源载入 FL Studio。
 
-![创作需求与首轮 MIDI 编排记录](assets/screenshots/01-composition.png)
+<p align="center">
+  <img src="assets/screenshots/01-composition.png" alt="创作需求与首轮 MIDI 编排记录" width="720">
+</p>
 
 ### 2. 原生片段与播放列表排列
 
 制作过程中通过手动放入并保存一个原生片段，继续完成当前 FL Studio 版本下的播放列表排列。
 
-![原生片段与播放列表排列过程](assets/screenshots/02-arrangement.png)
+<p align="center">
+  <img src="assets/screenshots/02-arrangement.png" alt="原生片段与播放列表排列过程" width="820">
+</p>
 
 ### 3. 右侧钢琴与轨道对应复核
 
 对钢琴的音色、MIDI、混音器路由及左右声道进行复核，并修正音色名称。
 
-![右侧钢琴与九轨对应关系复核结果](assets/screenshots/03-piano-review.png)
+<p align="center">
+  <img src="assets/screenshots/03-piano-review.png" alt="右侧钢琴与九轨对应关系复核结果" width="680">
+</p>
+
+## 项目状态
+
+当前公开版本以 `main` 分支中的根目录工程、MIDI、试听、`score_manifest.json` 和本 README 为同一组交付物。最近一次记录的完整工程核验完成于 **2026 年 9 月 10 日**；验证环境为 **macOS / Apple Silicon、FL Studio 2026（26.1.3）**。其他操作系统、处理器架构与 FL Studio 版本尚未验证。
+
+顶部 Release 与 Downloads 徽章读取 GitHub 的实时公开数据；下载量只统计 GitHub Release 附件，不包含源码 ZIP、克隆、M4A 的页面访问或本地文件复制。如果仓库尚未创建 Release，徽章会相应显示无版本或零下载。
+
+如果只需要收听作品，可直接使用 M4A；如果需要编辑音符或迁移到其他 DAW，优先使用 MIDI；如果需要复现当前音源、播放列表和混音路由，应打开 FL Studio 工程并确保本机已安装 FLEX / General MIDI Library。
+
+## 隐私与安全
+
+- 仓库内容是本地音乐工程、MIDI、音频、图片、JSON 和一个 Python 生成脚本，不包含服务端组件、账号登录、遥测或数据上传逻辑。
+- `compose_wandu.py` 使用 Python 标准库，并将产物写入脚本顶部 `OUT` 指定的本地目录。运行前应检查并修改该绝对路径，避免写入错误位置。
+- FL Studio 工程和试听文件属于二进制资产。合并外部修改前，建议核对文件来源，并在 DAW 中重新打开、播放和导出验证。
+
+## 许可与第三方依赖
+
+本仓库目前**未提供开源许可证文件**。公开可访问不等于获得复制、修改、再发布或商业使用授权；如需超出 GitHub 正常浏览与个人评估范围使用本作品或工程，请先取得作者许可。
+
+FLEX / General MIDI Library 不随仓库分发。使用 FL Studio 工程时，需由使用者通过自己的 FL Studio 安装和相应许可取得所需音色库。仓库内提及的音乐人和作品仅用于说明创作参考方向，不代表其参与、认可或授权本项目；本项目旋律和 MIDI 为重新创作。
+
+## 贡献与问题反馈
+
+欢迎通过 [Issues](https://github.com/Roylyl/Astra-Music/issues) 报告文件缺失、工程兼容性、MIDI 对应、路由或文档问题，也可以通过 Pull Request 提交可审阅的修正。涉及 `晚渡.flp`、MIDI、试听或 `score_manifest.json` 的修改，请说明变更范围，并同步更新所有受影响的交付物与核验记录。
